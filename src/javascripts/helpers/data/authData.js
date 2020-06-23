@@ -7,6 +7,7 @@ const authDiv = $('#auth');
 const forestDiv = $('#forest');
 const hutDiv = $('#hut');
 const logoutButton = $('#navbar-logout-button');
+const singleMycoDiv = $('#single-myco');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -14,6 +15,7 @@ const checkLoginStatus = () => {
       authDiv.addClass('hide');
       forestDiv.removeClass('hide');
       hutDiv.removeClass('hide');
+      singleMycoDiv.removeClass('hide');
       logoutButton.removeClass('hide');
       mushroomList.buildForest();
       mycologistList.buildHut();
@@ -21,6 +23,7 @@ const checkLoginStatus = () => {
       authDiv.removeClass('hide');
       forestDiv.addClass('hide');
       hutDiv.addClass('hide');
+      singleMycoDiv.addClass('hide');
       logoutButton.addClass('hide');
     }
   });
