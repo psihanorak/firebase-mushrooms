@@ -1,13 +1,13 @@
-import mycologistData from '../../helpers/data/mycologistData';
+import smash from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 
 import './singleMycologist.scss';
 
 const buildMycologist = (e) => {
   const mycologistId = e.target.closest('.card').id;
-  mycologistData.getMycologistById(mycologistId)
-    .then((response) => {
-      const mycologist = response.data;
+  smash.getSingleMycoWithShrooms(mycologistId)
+    .then((mycologist) => {
+      console.warn('here is your mycologist:', mycologist);
       const domString = `
         <h2 class="text-center">Featured Mycologist</h2>
         <div class="col-12">
@@ -17,7 +17,6 @@ const buildMycologist = (e) => {
           </div>
         </div>
       `;
-
       utils.printToDom('#single-myco', domString);
     })
     .catch((err) => console.error('problem with single mycologist', err));
