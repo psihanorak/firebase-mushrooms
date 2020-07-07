@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+
 import mushroomList from '../../components/mushroomList/mushroomList';
 import mycologistList from '../../components/mycologistList/mycologistList';
 
@@ -8,6 +9,7 @@ const forestDiv = $('#forest');
 const hutDiv = $('#hut');
 const logoutButton = $('#navbar-logout-button');
 const singleMycoDiv = $('#single-myco');
+const newShroomDiv = $('#new-shroom');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -17,6 +19,8 @@ const checkLoginStatus = () => {
       hutDiv.removeClass('hide');
       singleMycoDiv.removeClass('hide');
       logoutButton.removeClass('hide');
+      newShroomDiv.removeClass('hide');
+
       mushroomList.buildForest();
       mycologistList.buildHut();
     } else {
@@ -25,6 +29,7 @@ const checkLoginStatus = () => {
       hutDiv.addClass('hide');
       singleMycoDiv.addClass('hide');
       logoutButton.addClass('hide');
+      newShroomDiv.addClass('hide');
     }
   });
 };

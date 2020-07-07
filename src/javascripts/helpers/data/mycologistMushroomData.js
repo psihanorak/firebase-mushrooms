@@ -12,6 +12,7 @@ const getMycoShroomsByMycoUid = (mycoUid) => new Promise((resolve, reject) => {
         mycoShroomsObj[mycoShroomId].id = mycoShroomId;
         mycologistMushrooms.push(mycoShroomsObj[mycoShroomId]);
       });
+
       resolve(mycologistMushrooms);
     })
     .catch((err) => reject(err));
@@ -26,6 +27,7 @@ const getMycoShroomsByShroomId = (shroomId) => new Promise((resolve, reject) => 
         mycoShroomsObj[mycoShroomId].id = mycoShroomId;
         mycologistMushrooms.push(mycoShroomsObj[mycoShroomId]);
       });
+
       resolve(mycologistMushrooms);
     })
     .catch((err) => reject(err));
